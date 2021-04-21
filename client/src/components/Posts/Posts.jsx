@@ -1,7 +1,7 @@
 import React from "react";
 import Post from "./Post/Post";
 import {} from "@material-ui/core";
-import { Grid, Dialog, CardMedia } from "@material-ui/core";
+import { Grid, Dialog } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
 import useStyles from "./styles";
@@ -31,15 +31,8 @@ const Posts = ({ setCurrentId }) => {
         onClose={() => onOpenModal(false, null)}
         className={classes.dialog}
         fullWidth={true}
-        maxWidth={"md"}
       >
-        {pictureSrc && (
-          <CardMedia
-            image={pictureSrc}
-            className={classes.modal}
-            alt="Contemplative Reptile"
-          />
-        )}
+        <img src={pictureSrc} alt={pictureSrc} />
       </Dialog>
       {posts.map((post) => (
         <Grid item key={post._id} xs={12} sm={6}>

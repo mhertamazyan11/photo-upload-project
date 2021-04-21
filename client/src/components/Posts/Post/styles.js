@@ -5,6 +5,7 @@ export default makeStyles({
     height: 0,
     paddingTop: "56.25%",
     objectFit: "cover",
+    cursor: "pointer",
   },
   border: {
     border: "solid",

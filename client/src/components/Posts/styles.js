@@ -19,8 +19,6 @@ export default makeStyles((theme) => ({
   },
   modal: {
     paddingTop: "56.25%",
-  },
-  "MuiDialog-paperWidthSm": {
-    width: "100%",
+    cursor: "pointer",
   },
 }));
