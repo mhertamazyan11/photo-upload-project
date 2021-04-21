@@ -6,12 +6,17 @@ import { useDispatch } from "react-redux";
 
 import { deletePost } from "../../../actions/posts";
 
-const Post = ({ post }) => {
+const Post = ({ post, openModal }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+
   return (
     <Card className={classes.card}>
-      <CardMedia className={classes.media} image={post.selectedFile} />
+      <CardMedia
+        className={classes.media}
+        image={post.selectedFile}
+        onClick={() => openModal(true, post.selectedFile)}
+      />
       <CardActions className={classes.cardActions}>
         <Button
           size="small"

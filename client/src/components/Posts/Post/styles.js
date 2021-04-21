@@ -4,8 +4,7 @@ export default makeStyles({
   media: {
     height: 0,
     paddingTop: "56.25%",
-    backgroundSize: "100% 100%",
-    backgroundRepeat: "no-repeat",
+    objectFit: "cover",
   },
   border: {
     border: "solid",

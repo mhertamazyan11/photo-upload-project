@@ -17,4 +17,10 @@ export default makeStyles((theme) => ({
     textTransform: "uppercase",
     color: "#ffffff",
   },
+  modal: {
+    paddingTop: "56.25%",
+  },
+  "MuiDialog-paperWidthSm": {
+    width: "100%",
+  },
 }));

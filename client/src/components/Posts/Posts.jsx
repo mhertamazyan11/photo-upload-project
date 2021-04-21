@@ -1,6 +1,7 @@
 import React from "react";
 import Post from "./Post/Post";
-import { Grid } from "@material-ui/core";
+import {} from "@material-ui/core";
+import { Grid, Dialog, CardMedia } from "@material-ui/core";
 import { useSelector } from "react-redux";
 
 import useStyles from "./styles";
@@ -8,6 +9,13 @@ import useStyles from "./styles";
 const Posts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
   const classes = useStyles();
+  const [pictureSrc, setPictureSrc] = React.useState("");
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const onOpenModal = (isOpen, src) => {
+    setOpenModal(isOpen);
+    isOpen ? setPictureSrc(src) : setPictureSrc("");
+  };
 
   return !posts.length ? (
     <p className={classes.warning}> The DataBase is empty!</p>
@@ -18,9 +26,28 @@ const Posts = ({ setCurrentId }) => {
       alignItems="stretch"
       spacing={3}
     >
+      <Dialog
+        open={openModal}
+        onClose={() => onOpenModal(false, null)}
+        className={classes.dialog}
+        fullWidth={true}
+        maxWidth={"md"}
+      >
+        {pictureSrc && (
+          <CardMedia
+            image={pictureSrc}
+            className={classes.modal}
+            alt="Contemplative Reptile"
+          />
+        )}
+      </Dialog>
       {posts.map((post) => (
         <Grid item key={post._id} xs={12} sm={6}>
-          <Post post={post} setCurrentId={setCurrentId} />
+          <Post
+            post={post}
+            setCurrentId={setCurrentId}
+            openModal={onOpenModal}
+          />
         </Grid>
       ))}
     </Grid>
