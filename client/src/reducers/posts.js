@@ -1,4 +1,3 @@
-import Posts from "../components/Posts/Posts";
 import * as actionTypes from "../constants/actionTypes";
 
 export default (state = [], action) => {

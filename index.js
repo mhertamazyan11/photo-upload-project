@@ -27,7 +27,10 @@ mongoose
     useUnifiedTopology: true,
     useFindAndModify: false,
   })
-  .then(() => {
-    app.listen(PORT, () => console.log(`Server running on port:  ${PORT}`));
-  })
+  .then(() => console.log("mongoose is connected!"))
   .catch((err) => console.log("something goes wrong!!!"));
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+app.listen(PORT, () => console.log(`Server running on port:  ${PORT}`));
