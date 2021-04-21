@@ -16,6 +16,9 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 
+// Have Node serve the files for our built React app
+app.use(express.static(path.resolve(__dirname, "../client/build")));
+
 const CONNECTION_URL =
   "mongodb+srv://mher:mher123@cluster0.biv4m.mongodb.net/memories?retryWrites=true&w=majority";
 
