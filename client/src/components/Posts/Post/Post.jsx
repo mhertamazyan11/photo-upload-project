@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 
 import { deletePost } from "../../../actions/posts";
 
-const Post = ({ post, setCurrentId }) => {
+const Post = ({ post }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
   return (
